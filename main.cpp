@@ -1,5 +1,5 @@
 #include <iostream>
-#include <set>
+#include <unordered_set>
 
 using namespace std;
 
@@ -8,17 +8,19 @@ int main() {
     cout << "Enter N: ";
     cin >> N;
     
-    set<int> s;
+    unordered_set<int> us;
     cout << "Enter " << N << " numbers: ";
     for (int i = 0; i < N; i++) {
         int x;
         cin >> x;
-        s.insert(x);
+        us.insert(x);
     }
+
+    int search;
+    cout << "Enter number to search: ";
+    cin >> search;
     
-    cout << "Sorted set elements: ";
-    for (int num : s) cout << num << " ";
-    cout << endl;
+    cout << (us.count(search) ? "Found" : "Not Found") << endl;
 
     return 0;
 }
